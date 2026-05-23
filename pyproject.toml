@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pi-weather-station"
+version = "0.1.0"
+description = "Raspberry Pi weather station service"
+requires-python = ">=3.11"
+dependencies = [
+  "aiohttp",
+  "requests",
+  "orjson",
+  "pydantic",
+  "python-dotenv",
+  "tenacity",
+  "pyserial",
+  "gpiozero",
+  "w1thermsensor",
+  "adafruit-blinka",
+  "adafruit-extended-bus",
+  "adafruit-circuitpython-bme280",
+  "adafruit-circuitpython-ens160",
+  "adafruit-circuitpython-ds3231",
+  "adafruit-circuitpython-ads1x15",
+  "adafruit-circuitpython-mcp3xxx"
+]
+
+[project.scripts]
+pi-weather-station = "pi_weather_station.main:main"
