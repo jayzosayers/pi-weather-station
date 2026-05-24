@@ -1,0 +1,28 @@
+{
+  "stationId": "CHANGE_ME",
+  "apiKey": "CHANGE_ME",
+  "stationMode": "hybrid",
+  "repoUrl": "https://github.com/jayzosayers/pi-weather-station.git",
+  "apiUrlFile": "https://jayzosayers.github.io/pi-weather-station/weather-api-url.txt",
+  "defaultApiBaseUrl": "https://wx.jayzo.io/api/",
+  "radio": {
+    "enabled": true,
+    "autoDetectUsbSerial": true,
+    "baudRate": 115200
+  },
+  "boardModel": "PI4-HAT",
+  "boardRevision": 1,
+  "sensorBoardModel": "REMOTE-SENSOR",
+  "sensorBoardRevision": 1,
+  "adc": {
+    "type": "mcp3008",
+    "channel": 0
+  },
+  "features": {
+    "bme280": true,
+    "ens160": false,
+    "ds18b20": true,
+    "as3935": false,
+    "rtc": true
+  }
+}
