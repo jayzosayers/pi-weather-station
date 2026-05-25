@@ -1,26 +1,39 @@
 import argparse
 import asyncio
-import json
-from datetime import datetime, timezone
 from pathlib import Path
 
+from pi_weather_station.app import App
+from pi_weather_station.commands.parser import parse_command_text
+from pi_weather_station.config import load_config
 
-async def run(config_path: Path) -> None:
-    with config_path.open("r", encoding="utf-8") as f:
-        config = json.load(f)
 
-    station_id = config.get("stationId", "UNKNOWN")
-    print(f"pi-weather-station starting for station {station_id}", flush=True)
+async def run_cli_command(config_path: Path, command_parts: list[str]) -> None:
+    config = load_config(config_path)
+    app = App(config)
 
-    while True:
-        now = datetime.now(timezone.utc).isoformat()
-        print(f"[{now}] {station_id}: hello from pi-weather-station", flush=True)
-        await asyncio.sleep(60)
+    command_text = " ".join(command_parts)
+    command = parse_command_text(command_text, source="cli")
+
+    response = await app.command_bus.dispatch(command)
+    print(response)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(prog="pi-weather-station")
     parser.add_argument("--config", default="/boot/firmware/pi-weather-station.json")
-    args = parser.parse_args()
+    parser.add_argument(
+        "command_parts",
+        nargs="*",
+        help="Optional command, e.g. 'status' or 'report STATION_ID'",
+    )
 
-    asyncio.run(run(Path(args.config)))
+    args = parser.parse_args()
+    config_path = Path(args.config)
+
+    if args.command_parts:
+        asyncio.run(run_cli_command(config_path, args.command_parts))
+        return
+
+    config = load_config(config_path)
+    app = App(config)
+    asyncio.run(app.run())

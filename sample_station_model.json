@@ -1,31 +1,22 @@
 {
-  "stationId": "CHANGE_ME",
-  "apiKey": "CHANGE_ME",
-  "repoUrl": "https://github.com/jayzosayers/pi-weather-station.git",
-  "apiUrlFile": "https://jayzosayers.github.io/pi-weather-station/weather-api-url.txt",
-  "defaultApiBaseUrl": "https://wx.jayzo.io/api/",
-  "station": {
-    "mode": "hybrid",
-    "hardware": {
-      "controllerVariant": "pi4-hat-v1",
-      "sensorBoardVariant": "remote-sensor-v1",
-      "radioVariant": "usb-mesh-radio-v1"
-    },
-    "calibration": {
+    "STATION_ID": "0WUpxhv6",
+    "STATION_SECRET": "EXPIRED-wM9ZUKnSY7bRjz7yXhiWtUuQjMJXaQ9pNiK4=",
+    "OFFLINE_CONFIG": {
+    "Name": "NAME ME",
+    "Latitude": 0,
+    "Longitude": 0,
+    "Mode": "hybrid",
+    "Hardware": {
+      "boardModel": "PI4-HAT",
+      "boardRevision": 1,
       "anemometer": {
-        "radiusCm": 9.0,
+        "radius": 9.0,
         "adjustment": 1.18,
         "pulsesPerRotation": 2
       },
-      "rainGauge": {
-        "bucketSizeMm": 0.2794
-      },
       "windVane": {
-        "adc": {
-          "type": "mcp3008",
-          "channel": 0,
-          "referenceVoltage": 3.3
-        },
+        "type": "mcp3008",
+        "channel": 0,
         "values": [
           { "heading": 0.0, "direction": "N", "volts": 0.0 },
           { "heading": 22.5, "direction": "NNE", "volts": 1.4 },
@@ -44,7 +35,30 @@
           { "heading": 315.0, "direction": "NW", "volts": 0.2 },
           { "heading": 337.5, "direction": "NNW", "volts": 0.6 }
         ]
-      }
-    }
+      },
+      "rainBucketSize": 0.2794,
+      "sensorBoardModel": "REMOTE-SENSOR",
+      "sensorBoardRevision": 1,
+      "radio": {
+        "enabled": true,
+        "autoDetectUsbSerial": true,
+        "baudRate": 115200
+      },
+      "bme280": true,
+      "ens160": false,
+      "ds18b20": true,
+      "as3935": false,
+      "rtc": true
+    },
+    "CreatedAt": "00:00 01/01/2025",
+    "OwnerId": 0,
+    "CountryId": 243,
+    "Enabled": true,
+    "PublicData": true,
+    "ReportToDatabase": false,
+    "ReportToWundermap": false,
+    "TestMode": false,
+    "WUndermap_ID": "IBOLTO115",
+    "WUndermap_Key": "xU70fAcM"
   }
 }
