@@ -27,6 +27,3 @@ Thumbs.db
 # Local config overrides
 .env
 .env.*
-
-# Test Config
-test-config.json

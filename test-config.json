@@ -1,0 +1,33 @@
+{
+  "stationId": "TEST001",
+  "apiKey": "TESTKEY",
+  "repoUrl": "https://github.com/jayzosayers/pi-weather-station.git",
+  "apiUrlFile": "https://jayzosayers.github.io/pi-weather-station/weather-api-url.txt",
+  "defaultApiBaseUrl": "https://wx.jayzo.io/api/",
+  "station": {
+    "mode": "hybrid",
+    "hardware": {
+      "controllerVariant": "pi4-hat-v1",
+      "sensorBoardVariant": "remote-sensor-v1",
+      "radioVariant": "none"
+    },
+    "calibration": {
+      "anemometer": {
+        "radiusCm": 9.0,
+        "adjustment": 1.18,
+        "pulsesPerRotation": 2
+      },
+      "rainGauge": {
+        "bucketSizeMm": 0.2794
+      },
+      "windVane": {
+        "adc": {
+          "type": "mcp3008",
+          "channel": 0,
+          "referenceVoltage": 3.3
+        },
+        "values": []
+      }
+    }
+  }
+}
