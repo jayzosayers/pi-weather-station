@@ -1,9 +1,9 @@
 {
-  "stationId": "TEST001",
-  "apiKey": "TESTKEY",
+  "stationId": "0WUpxhv6",
+  "apiKey": "igksgvOEK5vNyCNluBZPcLZqKrcEX7xiRByYm1k7gZ0=",
   "repoUrl": "https://github.com/jayzosayers/pi-weather-station.git",
-  "apiUrlFile": "https://jayzosayers.github.io/pi-weather-station/weather-api-url.txt",
-  "defaultApiBaseUrl": "https://wx.jayzo.io/api/",
+  "apiUrlFile": "",
+  "defaultApiBaseUrl": "http://localhost:32772/api/",
   "station": {
     "mode": "hybrid",
     "hardware": {
